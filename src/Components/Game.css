@@ -1,4 +1,53 @@
 img{
     width: 100px;
+    transition: 1s;
+    margin-top: 20px;
 
 }
+img:hover{
+    transform:scale(1.5);
+}
+
+.vsCom {
+    position: relative;
+    bottom: -10px;
+    transition: bottom ease 1s;
+  }
+.vsCom:hover {
+    bottom: -10px;
+    transition: bottom ease 0.5s;
+  }
+
+.a {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+}
+
+.b{
+    display: flex;
+    flex-direction: column;
+    
+}
+.yourOptions{
+    display: flex;
+}
+.rivalOptions {
+    display: flex;
+    margin-left: auto;
+    right: 0;
+   
+}
+.images{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+}
+
+.versus{
+    display: flex;
+    
+}
+
