@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react'
 import lizard from '../Media/lizard.svg';
 import paper from '../Media/paper.svg';
@@ -6,24 +7,52 @@ import rock from '../Media/rock.svg';
 import scissors from '../Media/scissors.svg';
 import spock from '../Media/spock.svg';
 import './Game.css';
-import { renderToStaticMarkup } from 'react-dom/server';
+
 
 
 export default function Game() {
 
-    const imagesP= 
-        {
-            "rock" : lizard
-        }
 
-       
-    
 
     const plays= ["lizard", "paper", "rock", "scissors", "spock" ];
-    const [player1Play, setplayer1Play] = useState("");
+
+    const [player1Play, setPlayer1Play] = useState("");
     const [comPlay, setComPlay] = useState("");
+    const [timesPlayed, setTimesPlayed] = useState(0);
+
     const [isPlaying, setIsPlaying] = useState(false);
     const [gameMode, setGameMode] = useState("");
+
+    const [result, setResult] = useState("");
+    const [player1Score, setPlayer1Score] =useState(0);
+    const [player2Score, setPlayer2Score] =useState(0);
+
+    
+    useEffect(() => {
+        
+          
+        if (checkHands(player1Play,comPlay) === player1Play){
+            //setResult("YOU WIN");
+            //setPlayer1Score(player1Score+ 1);
+            setResult("YOU WIN");
+            setPlayer1Score(player1Score+1);
+        }
+        else if (checkHands(player1Play,comPlay) === comPlay){
+            //setResult("YOU LOSE");
+            //setPlayer2Score(player2Score + 1);
+            setResult("YOU LOSE");
+            setPlayer2Score(player2Score+1);
+            
+        }
+        else if (checkHands(player1Play,comPlay) === "tie"){
+            //setResult("TIE");
+            setResult("TIE");
+        }
+        
+      }, [player1Play, comPlay, timesPlayed]);
+    
+
+
 
     const checkHands= (p1, p2) => {
 
@@ -60,24 +89,35 @@ export default function Game() {
         else if (currentPlays.includes("rock") && currentPlays.includes("scissors")){
             return "rock";
         }
-        else{
+        else if (p1===p2){
             return "tie"
         }
     }
 
-    const checkPlay= (p1, p2) => {
+    const checkPlay= (p1,p2) => {
 
+       
         if (checkHands(p1,p2) === p1){
-            return "YOU WIN";
+            //setResult("YOU WIN");
+            //setPlayer1Score(player1Score+ 1);
+            return "YOU WIN"
         }
-        else if(checkHands(p1,p2) === p2){
+        else if (checkHands(p1,p2) === p2){
+            //setResult("YOU LOSE");
+            //setPlayer2Score(player2Score + 1);
             return "YOU LOSE"
+            
         }
-        else {
-            return "TIE";
+        else if (checkHands(p1,p2) === "tie"){
+            //setResult("TIE");
+            return "TIE"
         }
+    
+   
         
     }
+
+    
     const PlaySelected = ({image}) => {
         switch (image) {
             case "rock":
@@ -115,6 +155,9 @@ export default function Game() {
           }
         
       }
+
+     
+
       
   return (
     <div>
@@ -131,20 +174,19 @@ export default function Game() {
                     <div className='a'>
                         <h1>Choose your play!</h1>
                         <div className='images'>
-                        <img src={lizard} alt="lizard" onClick={() => {setplayer1Play("lizard")}} />
-                        <img src={paper} alt="lizard" onClick={() => {setplayer1Play("paper")}}/>
-                        <img src={rock} alt="lizard" onClick={() => {setplayer1Play("rock")}}/>
-                        <img src={scissors} alt="lizard" onClick={() => {setplayer1Play("scissors")}}/>
-                        <img src={spock} alt="lizard" onClick={() => {setplayer1Play("spock")}}/>
+                        <img src={lizard} alt="lizard" onClick={() => {checkPlay(); console.log("hika")}} />
+                        <img src={paper} alt="lizard" onClick={() => {setPlayer1Play("paper"); setComPlay(plays[Math.floor(Math.random() * 5)]); setTimesPlayed(timesPlayed +1) }} />
+                        <img src={rock} alt="lizard" onClick={() => {{setPlayer1Play("rock")}; setComPlay(plays[Math.floor(Math.random() * 5)])}} />
+                        <img src={scissors} alt="lizard" onClick={() => {{setPlayer1Play("scissors")}; setComPlay(plays[Math.floor(Math.random() * 5)])}} />
+                        <img src={spock} alt="lizard" onClick={() => {{setPlayer1Play("spock")}; setComPlay(plays[Math.floor(Math.random() * 5)])}} />
                     </div>
-                    
                     </div>
                     <PlaySelected image={player1Play} />
                 </div>
-                
-                    
-                    
-                    
+                <div>
+                    <h3 className='score'>{player1Score}-{player2Score}</h3>
+                    <h3 className='winner'>{result}</h3>
+                </div>
                 <div className='rivalOptions'>
                 <PlaySelected image={comPlay} />
                     <div className='b'>
@@ -159,14 +201,12 @@ export default function Game() {
                     </div>
                 </div>
                 </div>
-                <div onClick={() => {setComPlay(plays[Math.floor(Math.random() * 5)]); console.log(setplayer1Play, comPlay); checkPlay(player1Play, comPlay)} }>
-                PLAY
-            </div>
+                
             <div>
                 <h3>YOUR PLAY: {player1Play}</h3>
                 <h3>COM PLAY: {comPlay}</h3>
                 
-                <h3>{checkPlay(player1Play, comPlay)}</h3>
+                
 
             </div>
             </div>
