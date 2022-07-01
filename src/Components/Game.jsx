@@ -25,14 +25,17 @@ export default function Game() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [gameMode, setGameMode] = useState("");
 
-    const [result, setResult] = useState("");
+    const [result, setResult] = useState(null);
     const [player1Score, setPlayer1Score] =useState(0);
     const [player2Score, setPlayer2Score] =useState(0);
+
+
 
     
     useEffect(() => {
         
     if (gameMode === "vsCOM")
+        if (player1Play !== null || comPlay !== null){
         if (checkHands(player1Play,comPlay) === player1Play){
                 setResult("YOU WIN");
             setPlayer1Score(player1Score+1);
@@ -45,6 +48,10 @@ export default function Game() {
         else if (checkHands(player1Play,comPlay) === "tie"){
                         setResult("TIE");
         }
+        else{
+            setResult(null)
+        }
+    }
         
       }, [player1Play, comPlay, timesPlayed]);
 
@@ -177,7 +184,7 @@ export default function Game() {
 const resetValues = () =>{
     setPlayer1Play(null);
     setComPlay(null);
-    setResult("");
+    setResult(null);
 
 }
 
@@ -201,16 +208,26 @@ return(
                         <img src={spock} alt="spock" onClick={() => {handleClick("spock", true)}} />
                     </div>
                     </div>
-                    <PlaySelected image={player1Play} />
+                    <div className='container-play' > 
+                               <div className= 'play-selected'>
+                                    <PlaySelected image={player1Play}  />
+                                    <h2>PLAYER 1 PLAY</h2>
+                            </div>
+                            </div>
                 </div>
-                <div>
+                <div className='mid-container'>
                     <h3 className='score'>SCORE</h3>
                     <h3 className='score'>{player1Score}-{player2Score}</h3>
                     <button className='btn-pa' onClick={() => resetValues()}>PLAY AGAIN</button>
                     <h3 className='winner'>{result}</h3>
                 </div>
                 <div className='rivalOptions'>
-                <PlaySelected image={comPlay} />
+                <div className='container-play' > 
+                               <div className= 'play-selected'>
+                                    <PlaySelected image={comPlay}  />
+                                    <h2>COM PLAY</h2>
+                            </div>
+                            </div>
                     <div className='b'>
                     <h1>COM</h1>
                     <div className='images'>
@@ -255,27 +272,38 @@ return(
                                 <img src={spock} alt="spock" onClick={() => {handleClickPVP("spock", true)}} />
                             </div>
                             </div>
-                            <div class="flip-box">
-                                    <div class="flip-box-inner">
-                                        <div class="flip-box-front">
-                                        <img src={lizard} alt="Paris" style={{width: '300px',height:'200px'}} />
-                                        </div>
-                                        <div class="flip-box-back">
-                                        <h2 className='text-back'>PLAYER 1 SELECT</h2>
-                                        
-                                        </div>
+         
+                               <div className='container-play' style={{  
+            transform: result !== null ? 'rotateY(360deg)': '',
+        }}> 
+                                    <div className='container-flip' style={{  
+            transform: result !== null ? 'rotateY(180deg)': '',
+            transition: result !== null ? 'transform 0.8s' :'',
+        }}>
+                                    <div className= 'play-selected-front'>
+                                        <PlaySelected image={player1Play}  />
+                                        <h2>PLAYER 1 PLAY</h2>
                                     </div>
-                                </div>
-                            <PlaySelected image={player1Play} />
+                                    <div className='play-selected-back'>
+                                        <h1>?</h1>
+                                        <h2>PLAYER 1 PLAY</h2>
+                                     </div>
+                            </div>
+                            </div>
                         </div>
-                        <div>
+                        <div className='mid-container'>
                             <h3 className='score'>SCORE</h3>
                             <h3 className='score'>{player1Score}-{player2Score}</h3>
                             <button className='btn-pa' onClick={() => resetValues()}>PLAY AGAIN</button>
                             <h3 className='winner'>{result}</h3>
                         </div>
                         <div className='rivalOptions'>
-                        <PlaySelected image={comPlay} />
+                        <div className='container-play' > 
+                               <div className= 'play-selected'>
+                                    <PlaySelected image={comPlay}  />
+                                    <h2>COM PLAY</h2>
+                                </div>
+                        </div>
                             <div className='b'>
                             <h1>Player 2</h1>
                             <div className='images'style={{  

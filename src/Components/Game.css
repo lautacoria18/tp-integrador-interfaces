@@ -51,17 +51,22 @@ img:hover{
     
 }
 
+.mid-container{
+  margin-left: 300px;
+  text-align: center;
+}
+
 .winner{
-    margin-left: 470px;
+
     margin-top: 20px;
 }
 .btn-pa{
-    margin-left: 470px;
+
     margin-top: 330px;
 }
 .score{
-    text-align: center;
-    margin-left: 500px;
+
+
 }
 
 .flip-box {
@@ -71,6 +76,56 @@ img:hover{
     border: 1px solid #f1f1f1;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
   }
+
+  .container-play{
+
+    background-color: transparent;
+    margin-top: 300px;
+    border: 1px solid #000;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px;
+
+  }
+
+  .container-flip{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.1s;
+    transform-style: preserve-3d;
+    
+  }
+
+.container-flip{
+
+}
+
+  .container-play:hover .container-flip{
+    
+   
+  }
+
+  .play-selected-front, .play-selected-back {
+    
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+
+  .play-selected-front{
+    color: black;
+    transform: rotateY(180deg);
+  }
+
+  .play-selected-back{
+   
+  }
+
+  
   
   /* This container is needed to position the front and back side */
   .flip-box-inner {
@@ -113,3 +168,13 @@ img:hover{
   .text-back{
     margin-top: 80px;
   }
+
+
+.container-play{
+
+  }
+.play-selected{
+  text-align: center;
+   margin-left: 10px;
+  }
+
