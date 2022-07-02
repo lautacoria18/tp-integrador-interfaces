@@ -6,6 +6,7 @@ import paper from '../Media/paper.svg';
 import rock from '../Media/rock.svg';
 import scissors from '../Media/scissors.svg';
 import spock from '../Media/spock.svg';
+import mistery from '../Media/mistery.png';
 import './Game.css';
 
 
@@ -253,6 +254,18 @@ return(
 
 }
 
+        const BlindText= ({stringPlayer}) =>{
+            return (
+                <h3>PLAYER {stringPlayer} CLOSE YOUR EYES OR TURN AROUND, DON'T BE A CHEATER 😀</h3>
+            )
+        }
+        const YourTurnText= ({stringPlayer}) =>{
+            return (
+                <h3>PLAYER {stringPlayer} MAKE YOUR CHOICE! 😱</h3>
+            )
+        }
+
+
       const againstPlayer2= () =>{
         return(
             <div className='videogame' >
@@ -274,18 +287,16 @@ return(
                             </div>
          
                                <div className='container-play' style={{  
-            transform: result !== null ? 'rotateY(360deg)': '',
-        }}> 
-                                    <div className='container-flip' style={{  
             transform: result !== null ? 'rotateY(180deg)': '',
             transition: result !== null ? 'transform 0.8s' :'',
-        }}>
+        }}> 
+                                    <div className='container-flip'>
                                     <div className= 'play-selected-front'>
                                         <PlaySelected image={player1Play}  />
                                         <h2>PLAYER 1 PLAY</h2>
                                     </div>
                                     <div className='play-selected-back'>
-                                        <h1>?</h1>
+                                        {player1Play!== null ? <img src={mistery} alt="mistery" /> : null }
                                         <h2>PLAYER 1 PLAY</h2>
                                      </div>
                             </div>
@@ -294,6 +305,8 @@ return(
                         <div className='mid-container'>
                             <h3 className='score'>SCORE</h3>
                             <h3 className='score'>{player1Score}-{player2Score}</h3>
+                            {player1Play !==null && comPlay!==null ? "" : (player1Play ===null ? <YourTurnText stringPlayer={"1"} /> :<YourTurnText stringPlayer={"2"} />)}
+                                {player1Play !==null && comPlay!==null ? "" : (player1Play ===null ? <BlindText stringPlayer={"2"} /> :<BlindText stringPlayer={"1"} />)}
                             <button className='btn-pa' onClick={() => resetValues()}>PLAY AGAIN</button>
                             <h3 className='winner'>{result}</h3>
                         </div>
