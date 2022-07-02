@@ -1,0 +1,16 @@
+.navbar{
+    color: aliceblue;
+    text-align: center;
+    font-size: 5rem;
+    border: 1px whitesmoke solid;
+    background-color: rgba(0, 0, 255, 0.266);
+    position:relative
+}
+
+
+
+button{
+    border-radius: 0.5cm;
+    width: 200px;
+    height: 70px;
+}
