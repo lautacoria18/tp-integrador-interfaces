@@ -5,6 +5,7 @@ import Banner from './Components/Banner';
 import HowToPlay from './Components/HowToPlay';
 import Game from './Components/Game';
 import MultiplayerMode from './Components/MultiplayerMode';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path = "/" element={<Game />} />
           <Route exact path = "/multiplayer" element={<MultiplayerMode />} />
         </Routes>
+        <Footer />
     </div> 
     </BrowserRouter>
   );
