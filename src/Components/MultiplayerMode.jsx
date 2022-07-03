@@ -192,8 +192,9 @@ export default function MultiplayerMode() {
                         <div className='rivalOptions'>
                         <div className='container-play' > 
                                <div className= 'play-selected'>
+                                    
+                                    <h2>PLAYER 2 PLAY</h2>
                                     <PlaySelected image={player2Play}  />
-                                    <h2>COM PLAY</h2>
                                 </div>
                         </div>
                             <div className='b'>

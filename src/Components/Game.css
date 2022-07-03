@@ -2,6 +2,7 @@
   border: 1px black solid;
   border-radius: 1cm;
   background-color: rgba(0, 0, 255, 0.266);
+  margin: 20PX 100px 0 100px;
 
 }
 img{
@@ -84,13 +85,6 @@ img:hover{
 
 }
 
-.flip-box {
-    background-color: transparent;
-    width: 300px;
-    height: 200px;
-    border: 1px solid #f1f1f1;
-    perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  }
 
   .container-play{
 
@@ -115,15 +109,6 @@ img:hover{
     
   }
 
-.container-flip{
- 
-}
-
-  .container-play:hover .container-flip{
-    
-   
-  }
-
   .play-selected-front, .play-selected-back {
     
     position: absolute;
@@ -133,22 +118,10 @@ img:hover{
     backface-visibility: hidden;
   }
 
-  .play-selected-front{
-    color: black;
-
-  }
 
   .play-selected-back{
-   
+   text-align: center;
   }
-
-  
-  
-  /* This container is needed to position the front and back side */
-
-
-
-  
 
   .text-back{
     margin-top: 80px;
