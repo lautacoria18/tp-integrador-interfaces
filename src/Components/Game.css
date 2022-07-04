@@ -109,15 +109,6 @@ img:hover{
     
   }
 
-  .play-selected-front, .play-selected-back {
-    
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-  }
-
 
   .play-selected-back{
    text-align: center;
@@ -136,3 +127,59 @@ img:hover{
    margin-left: 10px;
   }
 
+
+
+  @media (max-width: 991px) {
+
+
+    .videogame{
+      border: 5px black solid;
+      border-radius: 1cm;
+      background-color: rgba(0, 0, 255, 0.266);
+      margin: 20PX 10px 0 10px;
+    
+    }
+
+    img{
+        width: 70px;
+        margin-top: 0%;
+    }
+
+   
+    .images{
+      display: block;
+       margin-top: -20px;
+      width: 350px;
+      margin-left: 10px;
+  
+  }
+  .container-play{
+
+    
+    background-color: transparent;
+    margin-top: 10px;
+    border: 1px solid #000;
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .a {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0px;
+    width: 350px;
+    text-align: center;
+}
+
+.versus{
+  display: block;
+  flex-direction: column;
+}
+
+.yourOptions{
+  display: block;
+}
+  }

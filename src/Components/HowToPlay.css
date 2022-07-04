@@ -6,3 +6,30 @@
     text-align: center;
     margin: 20PX 100px 0 100px;
 }
+
+
+@media (max-width: 991px) {
+    .conteiner-htp{
+        margin-top: 50px;
+        border: 5px whitesmoke solid;
+        border-radius: 1cm;
+        background-color: rgb(150, 77, 228);
+        text-align: center;
+        margin: 20PX 20px 0 20px;
+    }
+    
+
+
+  }
+  
+  @media (max-width: 480px) {
+    .conteiner-htp{
+        margin-top: 50px;
+        border: 5px whitesmoke solid;
+        border-radius: 1cm;
+        background-color: rgb(150, 77, 228);
+        text-align: center;
+        margin: 20PX 20px 0 20px;
+    }
+
+}

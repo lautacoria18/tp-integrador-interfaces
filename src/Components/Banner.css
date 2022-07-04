@@ -32,3 +32,58 @@ a{
     padding: 5px
     
 }
+
+
+@media (max-width: 991px) {
+
+
+    
+.title{
+    text-align: center;
+    font-size: 1.5rem;
+    margin-left: 20px;
+}
+
+    .navbar{
+        color: aliceblue;
+        border: 1px whitesmoke solid;
+        background-color: rgba(0, 0, 255, 0.266);
+        position:relative;
+        display: block;
+        text-align: center;
+      
+    }
+
+    .nav-buttons{
+        margin-top: 20px;
+        margin-left: 25%;
+        font-size: 1rem;
+        padding-left: 0px;
+        display: flex;
+
+}
+a{
+    
+    margin-left: 10px;
+    color: aliceblue;
+    text-decoration: none;
+    border-radius: 1cm;
+   
+    
+    
+}
+
+
+  }
+a{
+   
+    margin-left: 10px;
+    color: aliceblue;
+    text-decoration: none;
+    border-radius: 1cm;
+    padding: 5;
+    
+    
+   
+    
+}

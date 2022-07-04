@@ -171,7 +171,7 @@ return(
                         <img src={spock} alt="spock" onClick={() => {handleClick("spock", true)}} />
                     </div>
                     </div>
-                    <div className='container-play' > 
+                    <div className='container-play'> 
                                <div className= 'play-selected'>
                                     <PlaySelected image={player1Play}  />
                                     <h2>PLAYER 1 PLAY</h2>
