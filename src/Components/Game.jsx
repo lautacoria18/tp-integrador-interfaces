@@ -173,8 +173,9 @@ return(
                     </div>
                     <div className='container-play'> 
                                <div className= 'play-selected'>
-                                    <PlaySelected image={player1Play}  />
                                     <h2>PLAYER 1 PLAY</h2>
+                                    <PlaySelected image={player1Play}  />
+                                    
                             </div>
                             </div>
                 </div>
@@ -187,8 +188,9 @@ return(
                 <div className='rivalOptions'>
                 <div className='container-play' > 
                                <div className= 'play-selected'>
-                                    <PlaySelected image={comPlay}  />
                                     <h2>COM PLAY</h2>
+                                    <PlaySelected image={comPlay}  />
+                                    
                             </div>
                             </div>
                     <div className='b'>

@@ -6,7 +6,7 @@ export default function Banner() {
   return (
     <div className='navbar'>
       {console.log(window.location.href)}
-      <div className='title'>Rock Paper Scissors Lizard Spock!</div>
+        <div className='title'>Rock Paper Scissors Lizard Spock!</div>
         <div className='nav-buttons'> 
 
           <a href={`/`} style={{  
