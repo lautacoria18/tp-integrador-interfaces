@@ -158,12 +158,12 @@ return(
                 
                 
                 <div className='versus'>
-                <div className='yourOptions'>
-                    <div className='a'>
-                        <h1>Player 1</h1>
-                        <div className='images' style={{  
+                <div className='yourOptions' style={{  
             pointerEvents: player1Play != null ? 'none' : 'auto',
         }}>
+                    <div className='a'>
+                        <h1>Player 1</h1>
+                        <div className='images' >
                         <img src={lizard} alt="lizard" onClick={() => {handleClick("lizard", true)}} />
                         <img src={paper} alt="paper" onClick={() => {handleClick("paper", true)}} />
                         <img src={rock} alt="rock" onClick={() => {handleClick("rock", true)}}/>

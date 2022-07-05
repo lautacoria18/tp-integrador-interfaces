@@ -22,7 +22,7 @@ export default function MultiplayerMode() {
 
     useEffect(() => {
         
-        
+        if (player1Play !== null || player2Play !== null){
             if (checkHands(player1Play,player2Play) === player1Play){
                     setResult("PLAYER 1 WINS!");
                 setPlayer1Score(player1Score+1);
@@ -36,7 +36,7 @@ export default function MultiplayerMode() {
                             setResult("TIE");
             }
             
-          }, [timesPlayed]);
+          }}, [timesPlayed]);
 
           const resetValues = () =>{
             setPlayer1Play(null);
@@ -156,12 +156,12 @@ export default function MultiplayerMode() {
                         
                         
                         <div className='versus'>
-                        <div className='yourOptions'>
-                            <div className='a'>
-                                <h1>Player 1</h1>
-                                    <div className='images' style={{  
+                        <div className='yourOptions' style={{  
             pointerEvents: player1Play != null ? 'none' : 'auto',
         }}>
+                            <div className='a'>
+                                <h1>Player 1</h1>
+                                    <div className='images' >
                                 <img src={lizard} alt="lizard" onClick={() => {handleClickPVP("lizard", true)}} />
                                 <img src={paper} alt="paper" onClick={() => {handleClickPVP("paper", true)}} />
                                 <img src={rock} alt="rock" onClick={() => {handleClickPVP("rock", true)}}/>
