@@ -9,7 +9,7 @@ import spock from '../Media/spock.svg';
 import mistery from '../Media/mistery.png';
 import './Game.css';
 
-export default function MultiplayerMode() {
+const MultiplayerMode = () => {
 
     const [player1Play, setPlayer1Play] = useState(null);
     const [player2Play, setPlayer2Play] = useState(null);
@@ -182,10 +182,14 @@ export default function MultiplayerMode() {
                             </div>
                         </div>
                         <div className='mid-container'>
-                            <h3 className='score'>SCORE</h3>
-                            <h3 className='score'>{player1Score}-{player2Score}</h3>
-                            {player1Play !==null && player2Play!==null ? "" : (player1Play ===null ? <YourTurnText stringPlayer={"1"} /> :<YourTurnText stringPlayer={"2"} />)}
+                            <div className='score'>
+                            <h3 >SCORE</h3>
+                            <h3 >{player1Score}-{player2Score}</h3>
+                            </div>
+                            <div className='text-alert'>
+                                {player1Play !==null && player2Play!==null ? "" : (player1Play ===null ? <YourTurnText stringPlayer={"1"} /> :<YourTurnText stringPlayer={"2"} />)}
                                 {player1Play !==null && player2Play!==null ? "" : (player1Play ===null ? <BlindText stringPlayer={"2"} /> :<BlindText stringPlayer={"1"} />)}
+                                </div>
                             <button className='btn-pa' onClick={() => resetValues()}>PLAY AGAIN</button>
                             <h3 className='winner'>{result}</h3>
                         </div>
@@ -222,3 +226,5 @@ export default function MultiplayerMode() {
                     </div>
         )
 }
+
+export default MultiplayerMode;

@@ -1,17 +1,17 @@
 import logo from './logo.svg';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Banner from './Components/Banner';
 import HowToPlay from './Components/HowToPlay';
 import Game from './Components/Game';
 import MultiplayerMode from './Components/MultiplayerMode';
 import Footer from './Components/Footer';
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
     <BrowserRouter>
     <div>
-        <Banner />
+        <Navbar />
         <HowToPlay />
         <Routes>
           <Route exact path = "/" element={<Game />} />

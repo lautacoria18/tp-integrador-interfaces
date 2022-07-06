@@ -80,13 +80,8 @@ img:hover{
 
     margin-top: 20px;
 }
-.btn-pa{
 
-    margin-top: 330px;
-}
-
-
-  .container-play{
+.container-play{
 
     
     background-color: transparent;
@@ -123,7 +118,7 @@ img:hover{
    margin-left: 10px;
   }
 
-  button{
+  .btn-pa{
     width: 150px;
     height: 50px;
     border: 1px solid black;
@@ -133,13 +128,22 @@ img:hover{
     font-size:larger;
     color: wheat;
     box-shadow: 0px 15px 20px rgba(2, 43, 27, 0.4);
+    margin-top: 200px;
     
   }
-  button:hover{
+  .btn-pa:hover{
     cursor: pointer;
     background-color: rgb(132, 0, 144);
   }
 
+
+  .text-alert{
+    height: 100px; 
+  }
+
+  .score{
+    margin-top: -20px;
+  }
 
   @media (max-width: 991px) {
 
@@ -198,7 +202,7 @@ img:hover{
 .mid-container{
   font-size: 15px;
   height: 250px;
-  
+  margin-top: -10px;
   width: auto;
   border: 1px solid black;
   text-align: center;
@@ -209,13 +213,7 @@ img:hover{
   display: block;
 }
 
-.winner{
 
-}
-.btn-pa{
-
-  margin-top:auto;
-}
 
 .play-selected{
   margin-left: 0px;
@@ -230,12 +228,15 @@ img:hover{
   
 }
 
-button{
-  width: 100px;
+.btn-pa{
+  margin-top: auto;
+  margin-bottom: -10px;
+  width: 120px;
   height: 30px;
   border: 1px solid black;
   border-radius: 0.2cm;
   background-color: rgb(167, 0, 182);
+  font-size: medium;
   
 }
   }

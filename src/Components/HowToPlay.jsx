@@ -1,6 +1,6 @@
 import React from 'react'
 import './HowToPlay.css';
-export default function HowToPlay() {
+const HowToPlay = () => {
   return (
     <div className='conteiner-htp'>
       <h1>Rules</h1>
@@ -8,3 +8,5 @@ export default function HowToPlay() {
     </div>
   )
 }
+
+export default HowToPlay

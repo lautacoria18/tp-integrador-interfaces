@@ -1,6 +1,6 @@
 import React from 'react'
-import './Banner.css';
-export default function Banner() {
+import './Navbar.css';
+const Navbar = () => {
   
 
   return (
@@ -20,3 +20,5 @@ export default function Banner() {
     </div>
   )
 }
+
+export default Navbar;

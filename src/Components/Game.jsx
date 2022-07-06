@@ -10,14 +10,13 @@ import './Game.css';
 
 
 
-export default function Game() {
+const Game = () => {
 
 
     const plays= ["lizard", "paper", "rock", "scissors", "spock" ];
 
     const [player1Play, setPlayer1Play] = useState(null);
     const [comPlay, setComPlay] = useState(null);
-    const [timesPlayed, setTimesPlayed] = useState(0);
 
     const [result, setResult] = useState(null);
     const [player1Score, setPlayer1Score] =useState(0);
@@ -129,19 +128,11 @@ export default function Game() {
         
       }
 
-      const handleClick = (value, isPlayer1) => {
-        if (isPlayer1){
+      const handleClick = (value) => {
+       
         setPlayer1Play(value);
         setComPlay(plays[Math.floor(Math.random() * 5)]);
-        
-
       }
-      else{
-        setComPlay(value);
-        
-      }
-      setTimesPlayed(timesPlayed +1) 
-    }
 
 
 const resetValues = () =>{
@@ -164,11 +155,11 @@ return(
                     <div className='a'>
                         <h1>Player 1</h1>
                         <div className='images' >
-                        <img src={lizard} alt="lizard" onClick={() => {handleClick("lizard", true)}} />
-                        <img src={paper} alt="paper" onClick={() => {handleClick("paper", true)}} />
-                        <img src={rock} alt="rock" onClick={() => {handleClick("rock", true)}}/>
-                        <img src={scissors} alt="scissors" onClick={() => {handleClick("scissors", true)}} />
-                        <img src={spock} alt="spock" onClick={() => {handleClick("spock", true)}} />
+                        <img src={lizard} alt="lizard" onClick={() => {handleClick("lizard")}} />
+                        <img src={paper} alt="paper" onClick={() => {handleClick("paper")}} />
+                        <img src={rock} alt="rock" onClick={() => {handleClick("rock")}}/>
+                        <img src={scissors} alt="scissors" onClick={() => {handleClick("scissors")}} />
+                        <img src={spock} alt="spock" onClick={() => {handleClick("spock")}} />
                     </div>
                     </div>
                     <div className='container-play'> 
@@ -180,8 +171,13 @@ return(
                             </div>
                 </div>
                 <div className='mid-container'>
-                    <h3 className='score'>SCORE</h3>
-                    <h3 className='score'>{player1Score}-{player2Score}</h3>
+                    <div className='score'>
+                    <h3>SCORE</h3>
+                    <h3>{player1Score}-{player2Score}</h3>
+                    </div>
+                    <div className='text-alert'>
+                                {player1Play === null ? <h3>MAKE YOUR CHOICE!</h3> : null }
+                                </div>
                     <button className='btn-pa' onClick={() => resetValues()}>PLAY AGAIN</button>
                     <h3 className='winner'>{result}</h3>
                 </div>
@@ -218,28 +214,75 @@ return(
 
 }
 
-        const BlindText= ({stringPlayer}) =>{
-            return (
-                <h3>PLAYER {stringPlayer} CLOSE YOUR EYES OR TURN AROUND, DON'T BE A CHEATER 😀</h3>
-            )
-        }
-        const YourTurnText= ({stringPlayer}) =>{
-            return (
-                <h3>PLAYER {stringPlayer} MAKE YOUR CHOICE! 😱</h3>
-            )
-        }
+  
+    return(
+        <div className='videogame' >
+                    
+                    
+                    <div className='versus'>
+                    <div className='yourOptions' style={{  
+                pointerEvents: player1Play != null ? 'none' : 'auto',
+            }}>
+                        <div className='a'>
+                            <h1>Player 1</h1>
+                            <div className='images' >
+                            <img src={lizard} alt="lizard" onClick={() => {handleClick("lizard")}} />
+                            <img src={paper} alt="paper" onClick={() => {handleClick("paper")}} />
+                            <img src={rock} alt="rock" onClick={() => {handleClick("rock")}}/>
+                            <img src={scissors} alt="scissors" onClick={() => {handleClick("scissors")}} />
+                            <img src={spock} alt="spock" onClick={() => {handleClick("spock")}} />
+                        </div>
+                        </div>
+                        <div className='container-play'> 
+                                   <div className= 'play-selected'>
+                                        <h2>PLAYER 1 PLAY</h2>
+                                        <PlaySelected image={player1Play}  />
+                                        
+                                </div>
+                                </div>
+                    </div>
+                    <div className='mid-container'>
+                        <div className='score'>
+                        <h3>SCORE</h3>
+                        <h3>{player1Score}-{player2Score}</h3>
+                        </div>
+                        <div className='text-alert'>
+                                    {player1Play === null ? <h3>MAKE YOUR CHOICE!</h3> : null }
+                                    </div>
+                        <button className='btn-pa' onClick={() => resetValues()}>PLAY AGAIN</button>
+                        <h3 className='winner'>{result}</h3>
+                    </div>
+                    <div className='rivalOptions'>
+                    <div className='container-play' > 
+                                   <div className= 'play-selected'>
+                                        <h2>COM PLAY</h2>
+                                        <PlaySelected image={comPlay}  />
+                                        
+                                </div>
+                                </div>
+                        <div className='b'>
+                        <h1>COM</h1>
+                        <div className='images'>
+                                <img src={lizard} alt="lizard"  />
+                                <img src={paper} alt="paper" />
+                                <img src={rock} alt="rock" />
+                                <img src={scissors} alt="scissors" />
+                                <img src={spock} alt="spock" />
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    
+                <div>
+                   
+                    
+                    
+    
+                </div>
+                </div>
+    )
+    
+    
+    }
 
-
-
-     
-
-      
-  return (
-    <div>
-           <AgainstComputer/>
-                           
-
-
-    </div>
-  )
-}
+export default Game;
