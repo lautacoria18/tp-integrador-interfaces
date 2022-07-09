@@ -7,9 +7,21 @@ import rock from '../Media/rock.svg';
 import scissors from '../Media/scissors.svg';
 import spock from '../Media/spock.svg';
 import mistery from '../Media/mistery.png';
-import './Game.css';
+import '../Styles/Game.css';
+import useSound from 'use-sound';
+import Player1 from '../Media/Player1.mp3';
+import Player2 from '../Media/Player2.mp3'
+import Mistery from '../Media/tie.webm'
 
 const MultiplayerMode = () => {
+
+    const [playP1, { stop: stopWin }] = useSound(Player1, {
+        volume: 0.5,
+       });
+    const [playP2, { stop: stopLose }] = useSound(Player2, {
+        volume: 0.5,
+       });
+    const [playTie, { stop: stopTie }] = useSound(Mistery);
 
     const [player1Play, setPlayer1Play] = useState(null);
     const [player2Play, setPlayer2Play] = useState(null);
@@ -26,14 +38,17 @@ const MultiplayerMode = () => {
             if (checkHands(player1Play,player2Play) === player1Play){
                     setResult("PLAYER 1 WINS!");
                 setPlayer1Score(player1Score+1);
+                playP1()
             }
             else if (checkHands(player1Play,player2Play) === player2Play){
                       setResult("PLAYER 2 WINS!");
                 setPlayer2Score(player2Score+1);
+                playP2()
                 
             }
             else if (checkHands(player1Play,player2Play) === "tie"){
                             setResult("TIE");
+                            playTie()
             }
             
           }}, [timesPlayed]);
@@ -42,7 +57,9 @@ const MultiplayerMode = () => {
             setPlayer1Play(null);
             setPlayer2Play(null);
             setResult(null);
-        
+            stopWin();
+            stopLose();
+            stopTie();
         }
 
           
