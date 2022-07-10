@@ -137,7 +137,7 @@ const Game = () => {
         
       }
 
-      const handleClick = (value) => {
+      const playAHand = (value) => {
        
         setPlayer1Play(value);
         setComPlay(plays[Math.floor(Math.random() * 5)]);
@@ -156,52 +156,46 @@ const resetValues = () =>{
   
     return(
         <div className='videogame' >
-                    
-                    
-                    <div className='versus'>
-                    <div className='yourOptions' style={{  
-                pointerEvents: player1Play != null ? 'none' : 'auto',
-            }}>
-                        <div className='a'>
+            <div className='versus'>
+                <div className='yourOptions' style={{  
+                                                pointerEvents: player1Play != null ? 'none' : 'auto',
+                                                    }}>
+                    <div className='a'>
                             <h1>Player 1</h1>
                             <div className='images' >
-                            <Sound/>
-                            <img src={lizard} alt="lizard" onClick={() => {handleClick("lizard")}} />
-                            <img src={paper} alt="paper" onClick={() => {handleClick("paper")}} />
-                            <img src={rock} alt="rock" onClick={() => {handleClick("rock")}}/>
-                            <img src={scissors} alt="scissors" onClick={() => {handleClick("scissors")}} />
-                            <img src={spock} alt="spock" onClick={() => {handleClick("spock")}} />
-                        </div>
-                        </div>
-                        <div className='container-play'> 
-                                   <div className= 'play-selected'>
-                                        <h2>PLAYER 1 PLAY</h2>
-                                        <PlaySelected image={player1Play}  />
-                                        
-                                </div>
-                                </div>
+                                <img src={lizard} alt="lizard" onClick={() => {playAHand("lizard")}} />
+                                <img src={paper} alt="paper" onClick={() => {playAHand("paper")}} />
+                                <img src={rock} alt="rock" onClick={() => {playAHand("rock")}}/>
+                                <img src={scissors} alt="scissors" onClick={() => {playAHand("scissors")}} />
+                                <img src={spock} alt="spock" onClick={() => {playAHand("spock")}} />
+                            </div>
                     </div>
-                    <div className='mid-container'>
-                        <div className='score'>
+                    <div className='container-play'> 
+                            <div className= 'play-selected'>
+                                <h2>PLAYER 1 PLAY</h2>
+                                <PlaySelected image={player1Play}  />
+                            </div>
+                    </div>
+                </div>
+                <div className='mid-container'>
+                    <div className='score'>
                         <h3>SCORE</h3>
                         <h3>{player1Score}-{player2Score}</h3>
-                        </div>
-                        <div className='text-alert'>
-                                    {player1Play === null ? <h3>MAKE YOUR CHOICE!</h3> : null }
-                                    </div>
-                                    
-                        <button className='btn-pa' onClick={() => resetValues()}>PLAY AGAIN</button>
-                        <h3 className='winner'>{result}</h3>
                     </div>
-                    <div className='rivalOptions'>
-                    <div className='container-play' > 
-                                   <div className= 'play-selected'>
-                                        <h2>COM PLAY</h2>
-                                        <PlaySelected image={comPlay}  />
-                                        
-                                </div>
-                                </div>
-                        <div className='b'>
+                    <div className='text-alert'>
+                        {player1Play === null ? <h3>MAKE YOUR CHOICE!</h3> : null }
+                    </div>
+                    <button className='btn-pa' onClick={() => resetValues()}>PLAY AGAIN</button>
+                    <h3 className='winner'>{result}</h3>
+                </div>
+                <div className='rivalOptions'>
+                    <div className='container-play'> 
+                        <div className= 'play-selected'>
+                            <h2>COM PLAY</h2>
+                            <PlaySelected image={comPlay}  />
+                        </div>
+                    </div>
+                    <div className='b'>
                         <h1>COM</h1>
                         <div className='images'>
                                 <img src={lizard} alt="lizard"  />
@@ -210,17 +204,10 @@ const resetValues = () =>{
                                 <img src={scissors} alt="scissors" />
                                 <img src={spock} alt="spock" />
                         </div>
-                        </div>
                     </div>
-                    </div>
-                    
-                <div>
-                   
-                    
-                    
-    
                 </div>
-                </div>
+            </div>
+        </div>
     )
     
     

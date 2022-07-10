@@ -74,7 +74,7 @@ const MultiplayerMode = () => {
             )
         }
 
-        const handleClickPVP = (value, isPlayer1) => {
+        const playAHand = (value, isPlayer1) => {
             if (isPlayer1){
             setPlayer1Play(value);
                     
@@ -170,77 +170,62 @@ const MultiplayerMode = () => {
 
           return(
             <div className='videogame' >
-                        
-                        
-                        <div className='versus'>
-                        <div className='yourOptions' style={{  
-            pointerEvents: player1Play != null ? 'none' : 'auto',
-        }}>
-                            <div className='a'>
-                                <h1>Player 1</h1>
-                                    <div className='images' >
-                                <img src={lizard} alt="lizard" onClick={() => {handleClickPVP("lizard", true)}} />
-                                <img src={paper} alt="paper" onClick={() => {handleClickPVP("paper", true)}} />
-                                <img src={rock} alt="rock" onClick={() => {handleClickPVP("rock", true)}}/>
-                                <img src={scissors} alt="scissors" onClick={() => {handleClickPVP("scissors", true)}} />
-                                <img src={spock} alt="spock" onClick={() => {handleClickPVP("spock", true)}} />
-                            </div>
-                            </div>
-         
-                               <div className='container-play' > 
-                                    
-                                    <div className='play-selected-back'>
-                                        
-                                    
-                                        <h2>PLAYER 1 PLAY</h2>
-                                        {player1Play !== null && player2Play === null  ? <img src={mistery} alt='' /> :  <PlaySelected image={player1Play}  />}
-                                     
-                            </div>
+                <div className='versus'>
+                    <div className='yourOptions' style={{  
+                                            pointerEvents: player1Play != null ? 'none' : 'auto',
+                                                        }}>
+                        <div className='a'>
+                            <h1>Player 1</h1>
+                                <div className='images' >
+                                    <img src={lizard} alt="lizard" onClick={() => {playAHand("lizard", true)}} />
+                                    <img src={paper} alt="paper" onClick={() => {playAHand("paper", true)}} />
+                                    <img src={rock} alt="rock" onClick={() => {playAHand("rock", true)}}/>
+                                    <img src={scissors} alt="scissors" onClick={() => {playAHand("scissors", true)}} />
+                                    <img src={spock} alt="spock" onClick={() => {playAHand("spock", true)}} />
+                                </div>
+                        </div>
+                        <div className='container-play' > 
+                            <div className='play-selected-back'>
+                                <h2>PLAYER 1 PLAY</h2>
+                                {player1Play !== null && player2Play === null  ? <img src={mistery} alt='' /> :  <PlaySelected image={player1Play}  />}
                             </div>
                         </div>
-                        <div className='mid-container'>
-                            <div className='score'>
+                    </div>
+                    <div className='mid-container'>
+                        <div className='score'>
                             <h3 >SCORE</h3>
                             <h3 >{player1Score}-{player2Score}</h3>
-                            </div>
-                            <div className='text-alert'>
-                                {player1Play !==null && player2Play!==null ? "" : (player1Play ===null ? <YourTurnText stringPlayer={"1"} /> :<YourTurnText stringPlayer={"2"} />)}
-                                {player1Play !==null && player2Play!==null ? "" : (player1Play ===null ? <BlindText stringPlayer={"2"} /> :<BlindText stringPlayer={"1"} />)}
-                                </div>
-                            <button className='btn-pa' onClick={() => resetValues()}>PLAY AGAIN</button>
-                            <h3 className='winner'>{result}</h3>
                         </div>
+                        <div className='text-alert'>
+                            {player1Play !==null && player2Play!==null ? "" : (player1Play ===null ? <YourTurnText stringPlayer={"1"} /> :<YourTurnText stringPlayer={"2"} />)}
+                            {player1Play !==null && player2Play!==null ? "" : (player1Play ===null ? <BlindText stringPlayer={"2"} /> :<BlindText stringPlayer={"1"} />)}
+                        </div>
+                        <button className='btn-pa' onClick={() => resetValues()}>PLAY AGAIN</button>
+                        <h3 className='winner'>{result}</h3>
+                    </div>
                         <div className='rivalOptions'>
-                        <div className='container-play' > 
-                               <div className= 'play-selected'>
-                                    
+                            <div className='container-play' > 
+                                <div className= 'play-selected'>
                                     <h2>PLAYER 2 PLAY</h2>
                                     <PlaySelected image={player2Play}  />
                                 </div>
-                        </div>
+                            </div>
                             <div className='b'>
-                            <h1>Player 2</h1>
-                            <div className='images'style={{  
-            pointerEvents: player1Play != null && player2Play == null ? 'auto' : 'none',
-        }}>
-                            <img src={lizard} alt="lizard" onClick={() => {handleClickPVP("lizard", false)}} />
-                        <img src={paper} alt="paper" onClick={() => {handleClickPVP("paper", false)}} />
-                        <img src={rock} alt="rock" onClick={() => {handleClickPVP("rock",false)}}/>
-                        <img src={scissors} alt="scissors" onClick={() => {handleClickPVP("scissors",false)}} />
-                        <img src={spock} alt="spock" onClick={() => {handleClickPVP("spock",false )}} />
+                                <h1>Player 2</h1>
+                                <div className='images'style={{  
+                                                    pointerEvents: player1Play != null && player2Play == null ? 'auto' : 'none',
+                                                            }}>
+                                    <img src={lizard} alt="lizard" onClick={() => {playAHand("lizard", false)}} />
+                                    <img src={paper} alt="paper" onClick={() => {playAHand("paper", false)}} />
+                                    <img src={rock} alt="rock" onClick={() => {playAHand("rock",false)}}/>
+                                    <img src={scissors} alt="scissors" onClick={() => {playAHand("scissors",false)}} />
+                                    <img src={spock} alt="spock" onClick={() => {playAHand("spock",false )}} />
                           
-                            </div>
+                                </div>
                             </div>
                         </div>
-                        </div>
-                        
-                    <div>
-                       
-                        
-                        
-        
-                    </div>
-                    </div>
+                </div>
+            </div>
         )
 }
 
