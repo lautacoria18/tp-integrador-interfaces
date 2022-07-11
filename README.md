@@ -4,8 +4,6 @@ Página web Full Responsive desarrollada para Construccion de Interfaces UNQ
 
 ## Instrucciones
 
-In the project directory, you can run:
-
 ### Como descargar e instalar
 
 Pasos a seguir en consola:
