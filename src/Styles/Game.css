@@ -142,7 +142,12 @@ img:hover{
   }
 
   .score{
-    margin-top: -20px;
+    margin-top: -80px;
+  }
+
+  .audio{
+width: 50px;
+margin-right: 12cm ;
   }
 
   @media (max-width: 991px) {
@@ -238,6 +243,10 @@ img:hover{
   background-color: rgb(167, 0, 182);
   font-size: medium;
   
+}
+
+.score{
+  margin-top: -65px;
 }
   }
 

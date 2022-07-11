@@ -6,19 +6,20 @@ import paper from '../Media/paper.svg';
 import rock from '../Media/rock.svg';
 import scissors from '../Media/scissors.svg';
 import spock from '../Media/spock.svg';
-import Sound from 'react-sound';
 import Win from '../Media/win.mp3';
 import Lose from '../Media/fail.mp3'
 import Mistery from '../Media/tie.webm'
 import '../Styles/Game.css';
 import useSound from 'use-sound';
-
+import On from '../Media/on.png'
+import Off from '../Media/off.png'
 
 const Game = () => {
 
     const [playWin, { stop: stopWin }] = useSound(Win);
     const [playLose, { stop: stopLose }] = useSound(Lose);
     const [playTie, { stop: stopTie }] = useSound(Mistery);
+    const [isMuted, setIsMuted] = useState(false);
     const plays= ["lizard", "paper", "rock", "scissors", "spock" ];
 
     const [player1Play, setPlayer1Play] = useState(null);
@@ -178,6 +179,7 @@ const resetValues = () =>{
                     </div>
                 </div>
                 <div className='mid-container'>
+                <img className='audio' src={isMuted ? Off : On} alt="audio" onClick={ () => isMuted ? setIsMuted(false) : setIsMuted(true)} />
                     <div className='score'>
                         <h3>SCORE</h3>
                         <h3>{player1Score}-{player2Score}</h3>

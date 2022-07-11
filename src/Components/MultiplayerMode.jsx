@@ -12,7 +12,8 @@ import useSound from 'use-sound';
 import Player1 from '../Media/Player1.mp3';
 import Player2 from '../Media/Player2.mp3'
 import Mistery from '../Media/tie.webm'
-
+import On from '../Media/on.png'
+import Off from '../Media/off.png'
 const MultiplayerMode = () => {
 
     const [playP1, { stop: stopWin }] = useSound(Player1, {
@@ -23,6 +24,7 @@ const MultiplayerMode = () => {
        });
     const [playTie, { stop: stopTie }] = useSound(Mistery);
 
+    const [isMuted, setIsMuted] = useState(false);
     const [player1Play, setPlayer1Play] = useState(null);
     const [player2Play, setPlayer2Play] = useState(null);
     const [timesPlayed, setTimesPlayed] = useState(0);
@@ -38,17 +40,23 @@ const MultiplayerMode = () => {
             if (checkHands(player1Play,player2Play) === player1Play){
                     setResult("PLAYER 1 WINS!");
                 setPlayer1Score(player1Score+1);
+                if (!isMuted){
                 playP1()
+                }
             }
             else if (checkHands(player1Play,player2Play) === player2Play){
                       setResult("PLAYER 2 WINS!");
                 setPlayer2Score(player2Score+1);
-                playP2()
+                if (!isMuted){
+                    playP2()
+                    }
                 
             }
             else if (checkHands(player1Play,player2Play) === "tie"){
                             setResult("TIE");
-                            playTie()
+                            if (!isMuted){
+                                playTie()
+                                }
             }
             
           }}, [timesPlayed]);
@@ -60,6 +68,7 @@ const MultiplayerMode = () => {
             stopWin();
             stopLose();
             stopTie();
+            
         }
 
           
@@ -170,6 +179,7 @@ const MultiplayerMode = () => {
 
           return(
             <div className='videogame' >
+                
                 <div className='versus'>
                     <div className='yourOptions' style={{  
                                             pointerEvents: player1Play != null ? 'none' : 'auto',
@@ -192,16 +202,22 @@ const MultiplayerMode = () => {
                         </div>
                     </div>
                     <div className='mid-container'>
+                    <img className='audio' src={isMuted ? Off : On} alt="audio" onClick={ () => isMuted ? setIsMuted(false) : setIsMuted(true)} />
                         <div className='score'>
-                            <h3 >SCORE</h3>
+                            <h3 >SCORE</h3> 
                             <h3 >{player1Score}-{player2Score}</h3>
                         </div>
                         <div className='text-alert'>
                             {player1Play !==null && player2Play!==null ? "" : (player1Play ===null ? <YourTurnText stringPlayer={"1"} /> :<YourTurnText stringPlayer={"2"} />)}
                             {player1Play !==null && player2Play!==null ? "" : (player1Play ===null ? <BlindText stringPlayer={"2"} /> :<BlindText stringPlayer={"1"} />)}
                         </div>
+                        
+                        
                         <button className='btn-pa' onClick={() => resetValues()}>PLAY AGAIN</button>
+                        
+                        
                         <h3 className='winner'>{result}</h3>
+                       
                     </div>
                         <div className='rivalOptions'>
                             <div className='container-play' > 
