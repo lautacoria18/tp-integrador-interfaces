@@ -14,6 +14,11 @@ Pasos a seguir en consola:
 
 ### Como correrlo
 
-En consola, dentro de la carpeta  "unq-ui-lautaro-coria-trabajo-final" debemos correr el siguiente comnado
+En consola, dentro de la carpeta  "unq-ui-lautaro-coria-trabajo-final" debemos correr el siguiente comanado
 
 - npm start
+
+### Abrir página
+
+Para acceder manualmente a la página, debemos ingresar a la siguiente url
+http://localhost:3000/

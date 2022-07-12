@@ -38,18 +38,23 @@ const Game = () => {
         if (player1Play !== null || comPlay !== null){
         if (checkHands(player1Play,comPlay) === player1Play){
                 setResult("YOU WIN");
-                playWin()
-            setPlayer1Score(player1Score+1);
+                setPlayer1Score(player1Score+1);
+                if (!isMuted){
+                    playWin()
+                }
         }
         else if (checkHands(player1Play,comPlay) === comPlay){
                   setResult("YOU LOSE");
-                  playLose()
-            setPlayer2Score(player2Score+1);
-            
+                  setPlayer2Score(player2Score+1);
+                  if (!isMuted){
+                    playLose()
+                }
         }
         else if (checkHands(player1Play,comPlay) === "tie"){
                         setResult("TIE");
-                        playTie()
+                        if (!isMuted){
+                            playTie()
+                        }
         }
         else{
             setResult(null)
