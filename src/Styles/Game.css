@@ -115,7 +115,7 @@ img:hover{
 
 .play-selected{
   text-align: center;
-   margin-left: 10px;
+
   }
 
   .btn-pa{
@@ -150,7 +150,7 @@ width: 50px;
 margin-right: 12cm ;
   }
 
-  @media (max-width: 991px) {
+  @media (max-width: 1279px) {
 
 
     .videogame{
@@ -314,6 +314,7 @@ margin-right: 12cm ;
 
 
    }
+
 
    @media (min-width:1280px) and (max-width:1300px){
     .mid-container{
