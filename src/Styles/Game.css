@@ -315,3 +315,14 @@ margin-right: 12cm ;
 
    }
 
+   @media (min-width:1280px) and (max-width:1300px){
+    .mid-container{
+      width: 30vh;
+    }
+   }
+
+   @media (min-width:1301px) and (max-width:1440px){
+    .mid-container{
+      width: 45vh;
+    }
+   }
