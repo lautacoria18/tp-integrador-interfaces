@@ -27,7 +27,6 @@ const MultiplayerMode = () => {
     const [isMuted, setIsMuted] = useState(false);
     const [player1Play, setPlayer1Play] = useState(null);
     const [player2Play, setPlayer2Play] = useState(null);
-    const [timesPlayed, setTimesPlayed] = useState(0);
 
     
     const [result, setResult] = useState(null);
@@ -59,7 +58,7 @@ const MultiplayerMode = () => {
                                 }
             }
             
-          }}, [timesPlayed]);
+          }}, [player2Play]);
 
           const resetValues = () =>{
             setPlayer1Play(null);
@@ -91,7 +90,6 @@ const MultiplayerMode = () => {
           }
           else{
             setPlayer2Play(value);
-            setTimesPlayed(timesPlayed +1) 
           }
           
         }
@@ -184,7 +182,7 @@ const MultiplayerMode = () => {
                     <div className='yourOptions' style={{  
                                             pointerEvents: player1Play != null ? 'none' : 'auto',
                                                         }}>
-                        <div className='a'>
+                        <div className='column-player1'>
                             <h1>Player 1</h1>
                                 <div className='images' >
                                     <img src={lizard} alt="lizard" onClick={() => {playAHand("lizard", true)}} />
@@ -226,7 +224,7 @@ const MultiplayerMode = () => {
                                     <PlaySelected image={player2Play}  />
                                 </div>
                             </div>
-                            <div className='b'>
+                            <div className='column-rival'>
                                 <h1>Player 2</h1>
                                 <div className='images'style={{  
                                                     pointerEvents: player1Play != null && player2Play == null ? 'auto' : 'none',

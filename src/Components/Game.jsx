@@ -61,7 +61,7 @@ const Game = () => {
         }
         }
         
-      }, [player1Play, comPlay]); 
+      }, [comPlay]); 
 
     
 
@@ -166,7 +166,7 @@ const resetValues = () =>{
                 <div className='yourOptions' style={{  
                                                 pointerEvents: player1Play != null ? 'none' : 'auto',
                                                     }}>
-                    <div className='a'>
+                    <div className='column-player1'>
                             <h1>Player 1</h1>
                             <div className='images' >
                                 <img src={lizard} alt="lizard" onClick={() => {playAHand("lizard")}} />
@@ -202,7 +202,7 @@ const resetValues = () =>{
                             <PlaySelected image={comPlay}  />
                         </div>
                     </div>
-                    <div className='b'>
+                    <div className='column-rival'>
                         <h1>COM</h1>
                         <div className='images'>
                                 <img src={lizard} alt="lizard"  />
